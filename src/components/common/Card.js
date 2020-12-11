@@ -2,11 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 const Card = (props) => {
-  return (
-    <View style={style.containerStyle}>
-      {props.children}
-    </View>
-  );
+  return <View style={style.containerStyle}>{props.children}</View>;
 };
 
 const style = StyleSheet.create({
@@ -26,4 +22,4 @@ const style = StyleSheet.create({
   },
 });
 
-export default Card;
+export { Card };
