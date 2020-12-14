@@ -5,8 +5,9 @@ import { Header } from './components/common';
 import LoginForm from './components/LoginForm';
 
 export default class App extends Component {
+  state = { loggedIn: false };
+
   componentDidMount() {
-    //if (firebase.auth.length === 0) {
     firebase.initializeApp({
       apiKey: 'AIzaSyDrHwAcqNL6a5QEK1yIfAzs2XKO5B_BuSE',
       authDomain: 'authentication-8f993.firebaseapp.com',
@@ -15,7 +16,14 @@ export default class App extends Component {
       messagingSenderId: '576857196351',
       appId: '1:576857196351:web:efab1904aad1e9e0b2f58a',
     });
-    // }
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ loggedIn: true });
+      } else {
+        this.setState({ loggedIn: false });
+      }
+    });
   }
 
   render() {
