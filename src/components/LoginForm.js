@@ -25,7 +25,7 @@ export default class LoginForm extends Component {
   }
 
   onLoginFail() {
-    this.setState({ error: 'Authentication Failed.' });
+    this.setState({ error: 'Authentication Failed', loading: false });
   }
 
   onLoginSuccess() {
